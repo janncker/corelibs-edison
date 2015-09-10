@@ -128,8 +128,8 @@ int pin2gpiohandle(uint8_t pin);
 // Get the bit location within the hardware port of the given virtual pin.
 // This comes from the pins_*.c file for the active board configuration.
 //
-#define digitalPinToPort(P)		( g_APinDescription[P].pPort )
-#define digitalPinToBitMask(P)		( g_APinDescription[P].ulPin )
+#define digitalPinToPort(P)		( g_APinDescription[P].ulGPIOId )
+#define digitalPinToBitMask(P)		( g_APinDescription[P].ulGPIOId)
 #define digitalPinToTimer(P)		(  )
 #define portOutputRegister(port)	( &(port->PIO_ODSR) )
 #define portInputRegister(port)		( &(port->PIO_PDSR) )
