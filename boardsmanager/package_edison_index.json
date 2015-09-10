@@ -13,7 +13,7 @@
           "architecture": "i686",
           "url": "https://github.com/janncker/corelibs-edison/archive/v0.7.zip",
           "archiveFileName": "v0.7.zip",
-          "checksum": "SHA-256:91cf74e4ca1820109f28d2c752889e488d898d829dc73fe99098e5ba367bc5ea",
+          "checksum": "SHA-256:6d65bc31bebb1a92f668e670496c9608bea87f45a3203a100b3b350b92910eb3",
           "size": "477931",
           "boards": [
             {
