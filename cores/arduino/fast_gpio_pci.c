@@ -57,26 +57,25 @@ struct fgpio_pci_info {
 };
 
 static struct fgpio_pci_info fgpio_info[] = {
-	{ 130, GPIO_REG_OFFSET(130) }, //IO0
-	{ 131, GPIO_REG_OFFSET(131) }, //IO1
-	{ 128, GPIO_REG_OFFSET(128) }, //IO2
-	{  12, GPIO_REG_OFFSET(12) },  //IO3
-	{ 129, GPIO_REG_OFFSET(129) }, //IO4
-	{  13, GPIO_REG_OFFSET(13) },  //IO5
-	{ 182, GPIO_REG_OFFSET(182) }, //IO6
-	{  48, GPIO_REG_OFFSET(48) },  //IO7
-	{  49, GPIO_REG_OFFSET(49) },  //IO8
-	{ 183, GPIO_REG_OFFSET(183) }, //IO9
-	{  41, GPIO_REG_OFFSET(41) },  //IO10
-	{  43, GPIO_REG_OFFSET(43) },  //IO11
-	{  42, GPIO_REG_OFFSET(42) },  //IO12
-	{  40, GPIO_REG_OFFSET(40) },  //IO13
-	{  44, GPIO_REG_OFFSET(44) },  //IO14
-	{  45, GPIO_REG_OFFSET(45) },  //IO15
-	{  46, GPIO_REG_OFFSET(46) },  //IO16
-	{  47, GPIO_REG_OFFSET(47) },  //IO17
-	{  14, GPIO_REG_OFFSET(14) },  //IO18
-	{ 165, GPIO_REG_OFFSET(165) }  //IO19
+  { 130, GPIO_REG_OFFSET(130) }, //IO0
+  { 131, GPIO_REG_OFFSET(131 ) }, //IO1
+  { 49, GPIO_REG_OFFSET(49) }, //IO2
+  { 48, GPIO_REG_OFFSET(48) },  //IO3
+  { 47, GPIO_REG_OFFSET(47) }, //IO4
+  { 46, GPIO_REG_OFFSET(46) },  //IO5
+  { 13, GPIO_REG_OFFSET(13) }, //IO6
+  { 45, GPIO_REG_OFFSET(45) },  //IO7
+  { 44, GPIO_REG_OFFSET(44) },  //IO8
+  { 12, GPIO_REG_OFFSET(12) }, //IO9
+  {182, GPIO_REG_OFFSET(182) },  //IO10
+  {183, GPIO_REG_OFFSET(183) },  //IO11
+  {  15, GPIO_REG_OFFSET(15) },  //IO12
+  {  14, GPIO_REG_OFFSET(14) },  //IO13
+  {  28, GPIO_REG_OFFSET(28) },  //IO14
+  {  27, GPIO_REG_OFFSET(27) },  //IO15
+  {  110, GPIO_REG_OFFSET(110) },  //IO21
+  {  111, GPIO_REG_OFFSET(111) },  //IO23
+
 };
 
 static struct fgpio_pci fgpio;

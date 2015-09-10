@@ -56,8 +56,6 @@ const int mux_sel_analog[NUM_ANALOG_INPUTS] = {
 	MUX_SEL_AD7298_VIN1,
 	MUX_SEL_AD7298_VIN2,
 	MUX_SEL_AD7298_VIN3,
-	MUX_SEL_AD7298_VIN4,
-	MUX_SEL_AD7298_VIN5,
 };
 
 const int mux_sel_uart[NUM_UARTS][MUX_DEPTH_UART] = {
@@ -86,366 +84,157 @@ const int  mux_sel_i2c[NUM_I2C][MUX_DEPTH_I2C] = {
 	},
 };
 
+  /*
+	{ 130, GPIO_REG_OFFSET(47) }, //IO0
+	{ 131, GPIO_REG_OFFSET(48) }, //IO1
+	{ 49, GPIO_REG_OFFSET(49) }, //IO2
+	{ 48, GPIO_REG_OFFSET(15) },  //IO3
+	{ 47, GPIO_REG_OFFSET(165) }, //IO4
+	{ 46, GPIO_REG_OFFSET(12) },  //IO5
+	{ 13, GPIO_REG_OFFSET(13) }, //IO6
+	{ 45, GPIO_REG_OFFSET(48) },  //IO7
+	{ 44, GPIO_REG_OFFSET(49) },  //IO8
+	{ 12, GPIO_REG_OFFSET(183) }, //IO9
+	{182, GPIO_REG_OFFSET(41) },  //IO10
+	{183, GPIO_REG_OFFSET(43) },  //IO11
+	{  15, GPIO_REG_OFFSET(42) },  //IO12
+	{  14, GPIO_REG_OFFSET(40) },  //IO13
+	{  28, GPIO_REG_OFFSET(44) },  //IO14
+	{  27, GPIO_REG_OFFSET(45) },  //IO15
+
+  */
 mux_sel_t MuxDesc0[] = {
 	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_UART }, // Tristate disabled for all pins
-	{ 248, HIGH, FN_GPIO_OUTPUT }, // Output enabled
-	{ 248, LOW, FN_GPIO_INPUT | FN_UART}, // Output disabled
-	{ 216, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 216, LOW, FN_GPIO_INPUT_PULLDOWN | FN_UART }, // Pulldown enabled
-	{ 216, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ }, // Pullup disabled
-	{ 130, PIN_MODE_0, FN_GPIO }, // GPIO mode
-	{ 130, PIN_MODE_1, FN_UART }, // UART mode
-	{ 214, HIGH, FN_GPIO | FN_UART } // Tristate enabled for all pins
+        { 130, PIN_MODE_0, FN_GPIO | FN_UART }, 
 };
 
 mux_sel_t MuxDesc1[] = {
 	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_UART }, // Tristate disabled for all pins
-	{ 249, HIGH, FN_GPIO_OUTPUT | FN_UART }, // Output enabled
-	{ 249, LOW, FN_GPIO_INPUT }, // Output disabled
-	{ 217, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 217, LOW, FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 217, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ | FN_UART }, // Pullup disabled
-	{ 131, PIN_MODE_0, FN_GPIO }, // GPIO mode
-	{ 131, PIN_MODE_1, FN_UART }, // UART mode
-	{ 214, HIGH, FN_GPIO | FN_UART } // Tristate enabled for all pins
+        { 131, PIN_MODE_0, FN_GPIO|FN_UART }, 
 };
 
 mux_sel_t MuxDesc2[] = {
 	//gpio, value, type
-	{ 214, LOW, FN_GPIO }, // Tristate disabled for all pins
-	{ 250, HIGH, FN_GPIO_OUTPUT }, // Output enabled
-	{ 250, LOW, FN_GPIO_INPUT }, // Output disabled
-	{ 218, HIGH, FN_GPIO_INPUT_PULLUP}, // Pullup enabled
-	{ 218, LOW, FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 218, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ }, // Pullup disabled
-	{ 128, PIN_MODE_0, FN_GPIO }, // GPIO mode
-	{ 214, HIGH, FN_GPIO } // Tristate enabled for all pins
+	{ 49, PIN_MODE_0, FN_GPIO }, // GPIO mode
 };
 
 mux_sel_t MuxDesc3[] = {
 	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_PWM }, // Tristate disabled for all pins
-	{ 251, HIGH, FN_GPIO_OUTPUT | FN_PWM }, // Output enabled
-	{ 251, LOW, FN_GPIO_INPUT }, // Output disabled
-	{ 219, HIGH, FN_GPIO_INPUT_PULLUP}, // Pullup enabled
-	{ 219, LOW, FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 219, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ | FN_PWM }, // Pullup disabled
-	{  12, PIN_MODE_0, FN_GPIO }, // GPIO mode
-	{ 214, HIGH, FN_GPIO | FN_PWM } // Tristate enabled for all pins
+	{  48, PIN_MODE_0, FN_GPIO }, // GPIO mode
 };
 
 mux_sel_t MuxDesc4[] = {
-	//gpio, value, type
-	{ 214, LOW, FN_GPIO }, // Tristate disabled for all pins
-	{ 252, HIGH, FN_GPIO_OUTPUT }, // Output enabled
-	{ 252, LOW, FN_GPIO_INPUT }, // Output disabled
-	{ 220, HIGH, FN_GPIO_INPUT_PULLUP}, // Pullup enabled
-	{ 220, LOW, FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 220, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ }, // Pullup disabled
-	{ 129, PIN_MODE_0, FN_GPIO }, // GPIO mode
-	{ 214, HIGH, FN_GPIO } // Tristate enabled for all pins
+//	//gpio, value, type
+	{ 47, PIN_MODE_0, FN_GPIO }, // GPIO mode
 };
 
 mux_sel_t MuxDesc5[] = {
-	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_PWM }, // Tristate disabled for all pins
-	{ 253, HIGH, FN_GPIO_OUTPUT | FN_PWM }, // Output enabled
-	{ 253, LOW, FN_GPIO_INPUT }, // Output disabled
-	{ 221, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 221, LOW, FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 221, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ | FN_PWM }, // Pullup disabled
-	{  13, PIN_MODE_0, FN_GPIO }, // GPIO mode
-	{ 214, HIGH, FN_GPIO | FN_PWM } // Tristate enabled for all pins
+//	//gpio, value, type
+	{  46, PIN_MODE_0, FN_GPIO }, // GPIO mode
 };
 
 mux_sel_t MuxDesc6[] = {
-	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_PWM }, // Tristate disabled for all pins
-	{ 254, HIGH, FN_GPIO_OUTPUT | FN_PWM }, // Output enabled
-	{ 254, LOW, FN_GPIO_INPUT }, // Output disabled
-	{ 222, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 222, LOW, FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 222, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ | FN_PWM }, // Pullup disabled
-	{ 182, PIN_MODE_0, FN_GPIO }, // GPIO mode
-	{ 214, HIGH, FN_GPIO | FN_PWM } // Tristate enabled for all pins
+	{ 13, PIN_MODE_0, FN_GPIO|FN_PWM }, // GPIO mode
 };
 
 mux_sel_t MuxDesc7[] = {
 	//gpio, value, type
-	{ 214, LOW, FN_GPIO }, // Tristate disabled for all pins
-	{ 255, HIGH, FN_GPIO_OUTPUT }, // Output enabled
-	{ 255, LOW, FN_GPIO_INPUT }, // Output disabled
-	{ 223, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 223, LOW, FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 223, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ }, // Pullup disabled
-	{  48, PIN_MODE_0, FN_GPIO }, // GPIO mode
-	{ 214, HIGH, FN_GPIO } // Tristate enabled for all pins
+        {  45, PIN_MODE_0, FN_GPIO }, // GPIO mode
 };
 
 mux_sel_t MuxDesc8[] = {
 	//gpio, value, type
-	{ 214, LOW, FN_GPIO }, // Tristate disabled for all pins
-	{ 256, HIGH, FN_GPIO_OUTPUT }, // Output enabled
-	{ 256, LOW, FN_GPIO_INPUT }, // Output disabled
-	{ 224, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 224, LOW, FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 224, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ }, // Pullup disabled
-	{  49, PIN_MODE_0, FN_GPIO }, // GPIO mode
-	{ 214, HIGH, FN_GPIO } // Tristate enabled for all pins
+	{  44, PIN_MODE_0, FN_GPIO }, // GPIO mode
 };
 
 mux_sel_t MuxDesc9[] = {
 	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_PWM }, // Tristate disabled for all pins
-	{ 257, HIGH, FN_GPIO_OUTPUT | FN_PWM }, // Output enabled
-	{ 257, LOW, FN_GPIO_INPUT }, // Output disabled
-	{ 225, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 225, LOW, FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 225, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ | FN_PWM }, // Pullup disabled
-	{ 183, PIN_MODE_0, FN_GPIO }, // GPIO mode
-	{ 214, HIGH, FN_GPIO | FN_PWM } // Tristate enabled for all pins
+	{ 12, PIN_MODE_0, FN_GPIO|FN_PWM }, // GPIO mode
 };
 
 mux_sel_t MuxDesc10[] = {
 	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_PWM }, // Tristate disabled for all pins
-	{ 258, HIGH, FN_GPIO_OUTPUT | FN_PWM }, // Output enabled
-	{ 258, LOW, FN_GPIO_INPUT }, // Output disabled
-	{ 226, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 226, LOW, FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 226, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ | FN_PWM }, // Pullup disabled
-	{ 240, LOW, FN_GPIO }, // Mux Control
-	{ 263, HIGH, FN_GPIO }, // Mux Control
-	{ 263, LOW, FN_PWM }, // Mux Control
-	{  41, PIN_MODE_0, FN_GPIO }, // GPIO mode
-	{ 214, HIGH, FN_GPIO | FN_PWM} // Tristate enabled for all pins
+	{ 182, PIN_MODE_0, FN_GPIO|FN_PWM }, // GPIO mode
 };
 
 mux_sel_t MuxDesc11[] = {
 	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_SPI | FN_PWM }, // Tristate disabled for all pins
-	{ 259, HIGH, FN_GPIO_OUTPUT | FN_SPI | FN_PWM }, // Output enabled
-	{ 259, LOW, FN_GPIO_INPUT }, // Output disabled
-	{ 227, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 227, LOW, FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 227, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ | FN_SPI }, // Pullup disabled
-	{ 241, LOW, FN_GPIO }, // Mux Control
-	{ 241, HIGH, FN_SPI }, // Mux Control
-	{ 262, LOW, FN_PWM }, // Mux Control
-	{ 262, HIGH, FN_GPIO | FN_SPI }, // Mux Control
-	{  43, PIN_MODE_0, FN_GPIO }, // GPIO mode
-	{ 115, PIN_MODE_1, FN_SPI }, // SPI mode
-	{ 214, HIGH, FN_GPIO | FN_SPI | FN_PWM } // Tristate enabled for all pins
+	{ 183, PIN_MODE_0, FN_GPIO|FN_PWM }, // GPIO mode
 };
 
 mux_sel_t MuxDesc12[] = {
 	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_SPI }, // Tristate disabled for all pins
-	{ 260, HIGH, FN_GPIO_OUTPUT }, // Output enabled
-	{ 260, LOW, FN_GPIO_INPUT | FN_SPI }, // Output disabled
-	{ 228, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 228, LOW, FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 228, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ | FN_SPI }, // Pullup disabled
-	{ 242, LOW, FN_GPIO }, // Mux Control
-	{ 242, HIGH, FN_SPI }, // Mux Control
-	{  42, PIN_MODE_0, FN_GPIO }, // GPIO mode
-	{ 114, PIN_MODE_1, FN_SPI }, // SPI mode
-	{ 214, HIGH, FN_GPIO | FN_SPI } // Tristate enabled for all pins
+	{  15, PIN_MODE_0, FN_GPIO }, // GPIO mode
 };
 
 mux_sel_t MuxDesc13[] = {
 	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_SPI }, // Tristate disabled for all pins
-	{ 261, HIGH, FN_GPIO_OUTPUT | FN_SPI }, // Output enabled
-	{ 261, LOW, FN_GPIO_INPUT }, // Output disabled
-	{ 229, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 229, LOW, FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 229, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ | FN_SPI }, // Pullup disabled
-	{ 243, LOW, FN_GPIO }, // PinMux mode
-	{ 243, HIGH, FN_SPI }, // PinMux mode
-	{  40, PIN_MODE_0, FN_GPIO }, // GPIO mode
-	{ 109, PIN_MODE_1, FN_GPIO }, // SPI mode
-	{ 214, HIGH, FN_GPIO | FN_SPI } // Tristate enabled for all pins
+	{ 14, PIN_MODE_0, FN_GPIO }, // PinMux mode
 };
 
 mux_sel_t MuxDesc14[] = {
 	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_ANALOG }, // Tristate disabled for all pins
-	{ 200, LOW,  FN_GPIO }, // Mux control
-	{ 200, HIGH, FN_ANALOG }, // Mux control
-	{ 232, HIGH, FN_GPIO_OUTPUT }, // Output enabled
-	{ 232, LOW,  FN_GPIO_INPUT | FN_ANALOG }, // Output disabled
-	{ 208, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 208, LOW,  FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 208, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ | FN_ANALOG }, // Pullup disabled
-	{  44, PIN_MODE_0, FN_GPIO | FN_ANALOG }, 
-	{ 214, HIGH,  FN_GPIO | FN_ANALOG } // Tristate enabled for all pins
+	{  28, PIN_MODE_1, FN_I2C }, 
 };
 
 mux_sel_t MuxDesc15[] = {
 	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_ANALOG }, // Tristate disabled for all pins
-	{ 201, LOW,  FN_GPIO }, // Mux control
-	{ 201, HIGH, FN_ANALOG }, // Mux control
-	{ 233, HIGH, FN_GPIO_OUTPUT }, // Output enabled
-	{ 233, LOW,  FN_GPIO_INPUT | FN_ANALOG }, // Output disabled
-	{ 209, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 209, LOW,  FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 209, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ | FN_ANALOG }, // Pullup disabled
-	{  45, PIN_MODE_0, FN_GPIO | FN_ANALOG }, 
-	{ 214, HIGH,  FN_GPIO | FN_ANALOG } // Tristate enabled for all pins
+	{  27, PIN_MODE_1,  FN_I2C }, 
 };
 
-mux_sel_t MuxDesc16[] = {
-	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_ANALOG }, // Tristate disabled for all pins
-	{ 202, LOW,  FN_GPIO }, // Mux control
-	{ 202, HIGH, FN_ANALOG }, // Mux control
-	{ 234, HIGH, FN_GPIO_OUTPUT }, // Output enabled
-	{ 234, LOW,  FN_GPIO_INPUT | FN_ANALOG }, // Output disabled
-	{ 210, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 210, LOW,  FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 210, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ | FN_ANALOG }, // Pullup disabled
-	{  46, PIN_MODE_0, FN_GPIO | FN_ANALOG }, 
-	{ 214, HIGH,  FN_GPIO | FN_ANALOG } // Tristate enabled for all pins
+mux_sel_t MuxDesc20[] = {
+  //MISO
+  { 114, PIN_MODE_1, FN_SPI|FN_GPIO },
 };
 
-mux_sel_t MuxDesc17[] = {
-	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_ANALOG }, // Tristate disabled for all pins
-	{ 203, LOW,  FN_GPIO }, // Mux control
-	{ 203, HIGH, FN_ANALOG }, // Mux control
-	{ 235, HIGH, FN_GPIO_OUTPUT }, // Output enabled
-	{ 235, LOW,  FN_GPIO_INPUT | FN_ANALOG }, // Output disabled
-	{ 211, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 211, LOW,  FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 211, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ | FN_ANALOG }, // Pullup disabled
-	{  47, PIN_MODE_0, FN_GPIO | FN_ANALOG }, 
-	{ 214, HIGH,  FN_GPIO | FN_ANALOG } // Tristate enabled for all pins
+mux_sel_t MuxDesc21[] = {
+  //FS0
+  { 110, PIN_MODE_0, FN_GPIO },
 };
 
-mux_sel_t MuxDesc18[] = {
-	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_I2C | FN_ANALOG }, // Tristate disabled for all pins
-	{  14, NONE, FN_I2C }, // Disable GPIO output for I2C
-	{ 204, LOW,  FN_GPIO | FN_I2C }, // Mux control
-	{ 204, HIGH, FN_ANALOG }, // Mux control
-	{ 236, HIGH, FN_GPIO_OUTPUT }, // Output enabled
-	{ 236, LOW,  FN_GPIO_INPUT | FN_I2C | FN_ANALOG }, // Output disabled
-	{ 212, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 212, LOW,  FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 212, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ | FN_I2C | FN_ANALOG }, // Pullup disabled
-	{  14, PIN_MODE_0, FN_GPIO | FN_ANALOG }, 
-	{  27, PIN_MODE_1, FN_I2C }, // I2C mode
-	{ 214, HIGH,  FN_GPIO | FN_I2C | FN_ANALOG } // Tristate enabled for all pins
+mux_sel_t MuxDesc22[] = {
+  //MOSI
+  { 115, PIN_MODE_1, FN_SPI|FN_GPIO },
 };
 
-mux_sel_t MuxDesc19[] = {
-	//gpio, value, type
-	{ 214, LOW, FN_GPIO | FN_I2C | FN_ANALOG }, // Tristate disabled for all pins
-	{ 165, NONE, FN_I2C }, // Disable GPIO output for I2C
-	{ 205, LOW,  FN_GPIO | FN_I2C }, // Mux control
-	{ 205, HIGH, FN_ANALOG }, // Mux control
-	{ 237, HIGH, FN_GPIO_OUTPUT }, // Output enabled
-	{ 237, LOW,  FN_GPIO_INPUT | FN_I2C | FN_ANALOG }, // Output disabled
-	{ 213, HIGH, FN_GPIO_INPUT_PULLUP }, // Pullup enabled
-	{ 213, LOW,  FN_GPIO_INPUT_PULLDOWN }, // Pulldown enabled
-	{ 213, NONE, FN_GPIO_OUTPUT | FN_GPIO_INPUT_HIZ | FN_I2C | FN_ANALOG }, // Pullup disabled
-	{ 165, PIN_MODE_0, FN_GPIO | FN_ANALOG }, 
-	{ 28,  PIN_MODE_1, FN_I2C }, // I2C mode
-	{ 214, HIGH,  FN_GPIO | FN_I2C | FN_ANALOG } // Tristate enabled for all pins
+mux_sel_t MuxDesc23[] = {
+  //FS1
+  { 111, PIN_MODE_1, FN_SPI },
 };
 
+mux_sel_t MuxDesc24[] = {
+  //CLK
+  { 109, PIN_MODE_1, FN_SPI|FN_GPIO },
+};
 
-
+  
 // Sorted by Linux GPIO ID
 PinDescription g_APinDescription[] =
 {
 //	gpiolib	alias	fastinf	ardid	Initial			FixdSt	ptMuxDesc,		MuxCount		type		Handle	extPU	iAlt	pAlt
-	{ 12,	NONE,	3,	3,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc3,	MUX_SIZE(MuxDesc3),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO3
-	{ 13,	NONE,	5,	5,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc5,	MUX_SIZE(MuxDesc5),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO5
-	{ 14,	NONE,	18,	18,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc18,	MUX_SIZE(MuxDesc18),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO18 (AIN4)
-	{ 40,	NONE,	13,	13,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc13,	MUX_SIZE(MuxDesc13),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO13
-	{ 41,	NONE,	10,	10,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc10,	MUX_SIZE(MuxDesc10),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO10
-	{ 42,	NONE,	12,	12,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc12,	MUX_SIZE(MuxDesc12),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO12
-	{ 43,	NONE,	11,	11,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc11,	MUX_SIZE(MuxDesc11),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO11
-	{ 44,	NONE,	14,	14,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc14,	MUX_SIZE(MuxDesc14),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO14 (AIN0)
-	{ 45,	NONE,	15,	15,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc15,	MUX_SIZE(MuxDesc15),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO15 (AIN1)
-	{ 46,	NONE,	16,	16,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc16,	MUX_SIZE(MuxDesc16),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO16 (AIN2)
-	{ 47,	NONE,	17,	17,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc17,	MUX_SIZE(MuxDesc17),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO17 (AIN3)
-	{ 48,	NONE,	7,	7,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc7,	MUX_SIZE(MuxDesc7),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO7
-	{ 49,	NONE,	8,	8,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc8,	MUX_SIZE(MuxDesc8),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO8
-	{ 128,	NONE,	2,	2,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc2,	MUX_SIZE(MuxDesc2),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO2
-	{ 129,	NONE,	4,	4,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc4,	MUX_SIZE(MuxDesc4),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO4
-	{ 130,	NONE,	0,	0,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc0,	MUX_SIZE(MuxDesc0),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO0
-	{ 131,	NONE,	1,	1,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc1,	MUX_SIZE(MuxDesc1),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO1
-	{ 165,	NONE,	19,	19,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc19,	MUX_SIZE(MuxDesc19),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO19 (AIN5)
-	{ 182,	NONE,	6,	6,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc6,	MUX_SIZE(MuxDesc6),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO6
-	{ 183,	NONE,	9,	9,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc9,	MUX_SIZE(MuxDesc9),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO9
-
-	{ 200,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Mux Control for GPIO #44  - Arduino ID IO14
-	{ 201,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Mux Control for GPIO #45  - Arduino ID IO15
-	{ 202,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Mux Control for GPIO #46  - Arduino ID IO16
-	{ 203,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Mux Control for GPIO #47  - Arduino ID IO17
-	{ 204,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Mux Control for GPIO #43  - Arduino ID IO18
-	{ 205,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Mux Control for GPIO #41  - Arduino ID IO19
-
-	{ 208,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #44  - Arduino ID IO14
-	{ 209,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #45  - Arduino ID IO15
-	{ 210,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #46  - Arduino ID IO16
-	{ 211,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #47  - Arduino ID IO17
-	{ 212,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #43  - Arduino ID IO18
-	{ 213,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #41  - Arduino ID IO19
-
-	{ 214,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Tri-state enable for all pins
-
-	{ 216,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #130 - Arduino ID IO0
-	{ 217,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #131 - Arduino ID IO1
-	{ 218,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #128 - Arduino ID IO2
-	{ 219,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #12  - Arduino ID IO3
-	{ 220,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #129 - Arduino ID IO4
-	{ 221,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #13  - Arduino ID IO5
-	{ 222,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #182 - Arduino ID IO6
-	{ 223,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #48  - Arduino ID IO7
-	{ 224,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #49  - Arduino ID IO8
-	{ 225,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #183 - Arduino ID IO9
-	{ 226,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #111 - Arduino ID IO10
-	{ 227,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #115 - Arduino ID IO11
-	{ 228,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #114 - Arduino ID IO12
-	{ 229,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Pullup Control for GPIO #109 - Arduino ID IO13
-
-	{ 232,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #44 - Arduino ID IO14
-	{ 233,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #45 - Arduino ID IO15
-	{ 234,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #46 - Arduino ID IO16
-	{ 235,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #47 - Arduino ID IO17
-	{ 236,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #43 - Arduino ID IO18
-	{ 237,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #41 - Arduino ID IO19
-
-	{ 248,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #130 - Arduino ID IO0
-	{ 249,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #131 - Arduino ID IO1
-	{ 250,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #128 - Arduino ID IO2
-	{ 251,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #12 -  Arduino ID IO3
-	{ 252,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #129 - Arduino ID IO4
-	{ 253,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #13 - Arduino ID IO5
-	{ 254,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #182 - Arduino ID IO6
-	{ 255,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #48 - Arduino ID IO7
-	{ 256,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #183 - Arduino ID IO8
-	{ 257,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #49 - Arduino ID IO9
-	{ 258,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #49 - Arduino ID IO10
-	{ 259,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #49 - Arduino ID IO11
-	{ 260,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #49 - Arduino ID IO12
-	{ 261,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Direction Control for GPIO #49 - Arduino ID IO13
-
-	{ 27,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Mux Control for Arduino ID IO18 I2C
-	{ 28,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Mux Control for Arduino ID IO19 I2C
-	{ 240,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Mux Control for Arduino ID IO10
-	{ 241,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Mux Control for Arduino ID IO11
-	{ 242,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Mux Control for Arduino ID IO12
-	{ 243,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// PinMux GPIO #40 - Arduino ID IO13
-	{ 262,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Mux Control for Arduino ID IO11
-	{ 263,	NONE,	NONE,	NONE,	NONE,			NONE,	NULL,			0,			FN_SWITCH,	-1,	0,	0,	NULL },	// Mux Control for Arduino ID IO10
+	{ 49,	NONE,	2,	2,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc2,	MUX_SIZE(MuxDesc2),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO2
+        { 48,	NONE,	3,	3,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc3,	MUX_SIZE(MuxDesc3),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO3
+	{ 47,	NONE,	4,	4,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc4,	MUX_SIZE(MuxDesc4),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO4
+	{ 46,	NONE,	5,	5,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc5,	MUX_SIZE(MuxDesc5),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO5
+	{ 13,	NONE,	6,	6,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc6,	MUX_SIZE(MuxDesc6),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO6
+        { 45,	NONE,	7,	7,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc7,	MUX_SIZE(MuxDesc7),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO7
+        { 44,	NONE,	8,	8,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc8,	MUX_SIZE(MuxDesc8),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO8
+	{ 12,	NONE,	9,	9,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc9,	MUX_SIZE(MuxDesc9),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO9
+	{ 182,	NONE,	10,	10,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc10,	MUX_SIZE(MuxDesc10),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO10        
+	{ 183,	NONE,	11,	11,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc11,	MUX_SIZE(MuxDesc11),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO11
+	{ 15,	NONE,	12,	12,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc12,	MUX_SIZE(MuxDesc12),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO12
+	{ 14,	NONE,	13,	13,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc13,	MUX_SIZE(MuxDesc13),	FN_GPIO,	-1,	1,	0,	NULL },	// Arduino IO13
+	{ 28,	NONE,	14,	14,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc14,	MUX_SIZE(MuxDesc14),	FN_I2C,	-1,	1,	0,	NULL },	// Arduino IO14 (AIN0)
+	{ 27,	NONE,	15,	15,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc15,	MUX_SIZE(MuxDesc15),	FN_I2C,	-1,	1,	0,	NULL },	// Arduino IO15 (AIN1)
+	{ 255,	NONE,	16,	16,	FN_GPIO_INPUT_HIZ,	NONE,	 NULL,	0,	-1,	-1,	1,	0,	NULL },	
+	{ 255,	NONE,	17,	17,	FN_GPIO_INPUT_HIZ,	NONE,	 NULL,	0,	-1,	-1,	1,	0,	NULL },
+        { 255,	NONE,	18,	18,	FN_GPIO_INPUT_HIZ,	NONE,	 NULL,	0,	-1,	-1,	1,	0,	NULL },
+        { 255,	NONE,	19,	19,	FN_GPIO_INPUT_HIZ,	NONE,	 NULL,	0,	-1,	-1,	1,	0,	NULL },	
+	{ 114,	NONE,	20,	20,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc20,	MUX_SIZE(MuxDesc20),	FN_SPI,	-1, 1,	0,   NULL },
+	{ 110,	NONE,	NONE,	21,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc21,	MUX_SIZE(MuxDesc21),	FN_GPIO,	-1, 1,	0,   NULL },
+        { 115,	NONE,	22,	22,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc22,	MUX_SIZE(MuxDesc22),	FN_SPI,	-1, 1,	0,   NULL },
+        { 111,	NONE,	NONE,     23,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc23,	MUX_SIZE(MuxDesc23),	FN_SPI,	-1, 1,	0,   NULL },
+        { 109,	NONE,	24,	24,	FN_GPIO_INPUT_HIZ,	NONE,	(mux_sel_t*)&MuxDesc24,	MUX_SIZE(MuxDesc24),	FN_SPI,	-1, 1,	0,   NULL },
 };
 
 
@@ -456,10 +245,10 @@ uint32_t ardPin2DescIdx[GPIO_TOTAL];
 
 // Sorted by Linux PWM ID
 PwmDescription g_APwmDescription[] = {
-	{ 0,	3,	-1,	-1,	GP12_PWM0,	-1 },
-	{ 1,	5,	-1,	-1,	GP13_PWM1,	-1 },
-	{ 2,	6,	-1,	-1,	GP182_PWM2,	-1 },
-	{ 3,	9,	-1,	-1,	GP183_PWM3,	-1 },
+	{ 0,	9,	-1,	-1,	GP12_PWM0,	-1 },
+	{ 1,	6,	-1,	-1,	GP13_PWM1,	-1 },
+	{ 2,	10,	-1,	-1,	GP182_PWM2,	-1 },
+	{ 3,	11,	-1,	-1,	GP183_PWM3,	-1 },
 };
 uint32_t sizeof_g_APwmDescription;
 
@@ -497,6 +286,12 @@ PinState g_APinState[]=
 	{ 0,		0,		1,		0},	/* 17 - ADC	*/
 	{ 0,		0,		1,		0},	/* 18 - ADC	*/
 	{ 0,		0,		1,		0},	/* 19 - ADC	*/
+	{ 0,		0,		1,		0},	/* 20 - ADC	*/
+        { 0,		0,		1,		0},	/* 21 - ADC	*/
+        { 0,		0,		1,		0},	/* 22 - ADC	*/
+        { 0,		0,		1,		0},	/* 23 - ADC	*/
+        { 0,		0,		1,		0},	/* 24 - ADC	*/
+
 };
 uint32_t sizeof_g_APinState;
 

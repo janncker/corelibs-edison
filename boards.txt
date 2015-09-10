@@ -4,7 +4,7 @@ menu.cpu=Processor
 
 ##############################################################
 
-izmir_ec.name=Intel® Edison
+izmir_ec.name=Edison Kits Pro
 izmir_ec.upload.tool=izmirdl
 izmir_ec.upload.protocol=sam-ba
 izmir_ec.upload.maximum_size=10000000
@@ -20,6 +20,3 @@ izmir_ec.build.variant=edison_fab_c
 izmir_ec.build.toolchain_path=x86_64-pokysdk-linux-eglibc/usr/bin/i586-poky-linux
 izmir_ec.build.sysroot_path=i586-poky-linux-eglibc
 izmir_ec.build.toolchain_prefix=i586-poky-linux-
-
-
-

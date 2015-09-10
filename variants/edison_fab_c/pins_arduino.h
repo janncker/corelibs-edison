@@ -25,33 +25,33 @@
 #ifndef Pins_Arduino_h
 #define Pins_Arduino_h
 
-#define NUM_DIGITAL_PINS            20
-#define NUM_ANALOG_INPUTS           6
+#define NUM_DIGITAL_PINS            16
+#define NUM_ANALOG_INPUTS           4
 #define NUM_UARTS					0x02
 #define NUM_SPI						0x02
 #define NUM_I2C						0x01
 
 #define analogInputToDigitalPin(p)  ((p < 6) ? (p) + 14 : -1)
 
-#define digitalPinHasPWM(p)         ((p) == 3 || (p) == 5 || (p) == 6 || (p) == 9 || (p) == 10 || (p) == 11)
+#define digitalPinHasPWM(p)         ((p) == 6 || (p) == 9 || (p) == 10 || (p) == 11)
 
 static const uint8_t SS   = 10;
 static const uint8_t MOSI = 11;
 static const uint8_t MISO = 12;
 static const uint8_t SCK  = 13;
 
-static const uint8_t SDA = 18;
-static const uint8_t SCL = 19;
+static const uint8_t SDA = 14;
+static const uint8_t SCL = 15;
 static const uint8_t LED_BUILTIN = 13;
 
-static const uint8_t A0 = 14;
-static const uint8_t A1 = 15;
-static const uint8_t A2 = 16;
-static const uint8_t A3 = 17;
-static const uint8_t A4 = 18;
-static const uint8_t A5 = 19;
-static const uint8_t A6 = 20;
-static const uint8_t A7 = 21;
+static const uint8_t A0 = 16;
+static const uint8_t A1 = 17;
+static const uint8_t A2 = 18;
+static const uint8_t A3 = 19;
+static const uint8_t A4 = 20;
+static const uint8_t A5 = 21;
+static const uint8_t A6 = 22;
+static const uint8_t A7 = 23;
 
 #define digitalPinToPCICR(p)    (((p) >= 0 && (p) <= 21) ? (&PCICR) : ((uint8_t *)0))
 #define digitalPinToPCICRbit(p) (((p) <= 7) ? 2 : (((p) <= 13) ? 0 : 1))

@@ -96,19 +96,19 @@ struct mux_sel {
 #define MUX_SEL_NONE			-1
 #define MUX_SEL_UART0_RXD		 0
 #define MUX_SEL_UART0_TXD		 1
-#define MUX_SEL_SPI1_SS_B		10
-#define MUX_SEL_SPI1_MOSI		11
-#define MUX_SEL_SPI1_MISO		12
-#define MUX_SEL_SPI1_SCK		13
-#define MUX_SEL_AD7298_VIN0		14
-#define MUX_SEL_AD7298_VIN1		15
+#define MUX_SEL_SPI1_SS_B		21
+#define MUX_SEL_SPI1_MOSI		22
+#define MUX_SEL_SPI1_MISO		20
+#define MUX_SEL_SPI1_SCK		24
+#define MUX_SEL_AD7298_VIN0		-1
+#define MUX_SEL_AD7298_VIN1		-1
 #define MUX_SEL_AD7298_VIN2		16
 #define MUX_SEL_AD7298_VIN3		17
 #define MUX_SEL_AD7298_VIN4		18
 #define MUX_SEL_AD7298_VIN5		19
 /* The I2C lines are wired incorrectly on Fab-B board (SDA should be on IO18) */
-#define MUX_SEL_I2C_SDA			19
-#define MUX_SEL_I2C_SCL			18
+#define MUX_SEL_I2C_SDA			14
+#define MUX_SEL_I2C_SCL			15
 
 /* Pins table to be instanciated into variant.cpp */
 
